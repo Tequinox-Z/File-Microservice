@@ -6,7 +6,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootApplication
-@EnableEurekaClient
+@EnableEurekaClient						// Enable the register as client
+/**
+ * Initialize the aplication
+ * @author Salvador
+ */
 public class FileMicroServiceApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {

@@ -11,22 +11,22 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 
 /**
- * Indica un error ocurrido
- * @author Salva
+ * Indicates the error occurred
+ * @author Salvador
  */
 public class RestError implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	private HttpStatus estado;													// Código de estado
+	private HttpStatus estado;													// Status code
 	@JsonFormat(shape = Shape.STRING, pattern = "dd/MM/yyyy hh:mm:ss")
-	private LocalDateTime fecha;												// Fecha de la excepción
-	private String mensaje;														// Mensaje
+	private LocalDateTime fecha;												// Date
+	private String mensaje;														// Message
 	
 	
 	/**
-	 * Constructor con parámetros
-	 * @param estado
-	 * @param mensaje
+	 * Constructor whitout parameters
+	 * @param status
+	 * @param message
 	 */
 	public RestError(HttpStatus estado, String mensaje) {
 		super();
@@ -34,7 +34,10 @@ public class RestError implements Serializable {
 		this.fecha = LocalDateTime.now();
 		this.mensaje = mensaje;
 	}
-	
+	/**
+	 * Constructor with message
+	 * @param mensaje: Message to set
+	 */
 	public RestError(String mensaje) {
 		super();
 		this.fecha = LocalDateTime.now();
@@ -42,24 +45,24 @@ public class RestError implements Serializable {
 	}
 	
 	/**
-	 * Obtiene el código de estado
-	 * @return Código de estado
+	 * Get the status code
+	 * @return Status code
 	 */
 	public HttpStatus getEstado() {
 		return estado;
 	}
 	
 	/**
-	 * Obtiene la fecha
-	 * @return Fecha 
+	 * Get the date
+	 * @return Date 
 	 */
 	public LocalDateTime getFecha() {
 		return fecha;
 	}
 	
 	/**
-	 * Obtiene el mensaje
-	 * @return Mensaje
+	 * Get the message
+	 * @return Message of error
 	 */
 	public String getMensaje() {
 		return mensaje;
